@@ -23,21 +23,15 @@ public class CadastroBean implements Serializable {
 	@ManagedProperty(value="#{resumoBean}")
 	private ResumoBean resumoBean;
 	
-	public ResumoBean getResumoBean() {
-		return resumoBean;
-	}
-
-	public void setResumoBean(ResumoBean resumoBean) {
-		this.resumoBean = resumoBean;
-	}
-
 	private static final long serialVersionUID = 2166274126620784954L;
 
 	/**
 	 * Inializa��o de cliente e clientecontroller
 	 */
 	public CadastroBean() {
+		this.setCliente(new Cliente());
 		this.setClienteController(new ClienteController());
+		//this.setCliente(new Cliente());
 	}
 	
 	@PostConstruct
@@ -74,15 +68,16 @@ public class CadastroBean implements Serializable {
 
 		FacesContext contexto = FacesContext.getCurrentInstance();
 		
-		cliente = new Cliente();
+		System.out.println("SERÁ QUE JÁ EXISTE UM CLIENTE AQUI?????");
+		System.out.println(cliente.getNomeCliente());
 
 		boolean deuCerto;
 		deuCerto = this.clienteController.inserirCliente(cliente);
 
 		if (deuCerto == false) {
 
-			contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Cliente n�o cadastrado, verifique os dados e tente novamente!", null));
+			contexto.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Cliente não cadastrado, verifique os dados e tente novamente!", null));
 
 			return "/pages/cadastro";
 
@@ -129,6 +124,14 @@ public class CadastroBean implements Serializable {
 	 */
 	public void setClienteController(ClienteController clienteController) {
 		this.clienteController = clienteController;
+	}
+	
+	public ResumoBean getResumoBean() {
+		return resumoBean;
+	}
+
+	public void setResumoBean(ResumoBean resumoBean) {
+		this.resumoBean = resumoBean;
 	}
 
 	/**

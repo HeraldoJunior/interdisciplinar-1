@@ -10,9 +10,8 @@
   <property name="hibernate.current_session_context_class">thread</property>
   <property name="hibernate.generate_statistics">true</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
-  <property name="hibernate.connection.datasource">java:jboss/datasources/OracleInterdis</property>
   
-  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.connection.datasource">java:jboss/datasources/OracleInterdis</property>
   
   <mapping class="br.edu.uniopet.tds172a.heraldoisrael.vo.Cliente"/>
   <mapping class="br.edu.uniopet.tds172a.heraldoisrael.vo.Produto"/>

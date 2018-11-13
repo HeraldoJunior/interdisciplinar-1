@@ -9,6 +9,7 @@ import br.edu.uniopet.tds172a.heraldoisrael.model.ICliente;
 import br.edu.uniopet.tds172a.heraldoisrael.util.HibernateUtil;
 import br.edu.uniopet.tds172a.heraldoisrael.vo.Cliente;
 import br.edu.uniopet.tds172a.heraldoisrael.vo.Produto;
+import br.edu.uniopet.tds172a.heraldoisrael.vo.TipoUsuario;
 
 /**
  * classe DAO que implementa a interface ICliente, efetua as devidas conex�es
@@ -31,12 +32,21 @@ public class ClienteDAO implements ICliente {
 	 * @return
 	 */
 	public boolean inserirCliente(Cliente cliente) {
-
+		
+		TipoUsuario tipoUsuario = new TipoUsuario();
+		tipoUsuario.setIDTIPO_USUARIO(1);
+		cliente.setTipoUsuario(tipoUsuario);
+		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
+		
 		try {
-			session.save(cliente);
-			return true;
+			if(cliente.getNomeCliente() != null){
+				session.save(cliente);
+				return true;
+			}else {
+				System.out.println("TA TUDO ERRADO");
+				return false;
+			}
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 			return false;
@@ -133,10 +143,9 @@ public class ClienteDAO implements ICliente {
 
 	@Override
 	public Cliente buscaCliente(Cliente cliente) {
-
-		
-		
 		return new Cliente();
 	}
+	
+	
 
 }

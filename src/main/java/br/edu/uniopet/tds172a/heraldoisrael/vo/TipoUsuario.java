@@ -17,6 +17,7 @@ import javax.persistence.Table;
 public class TipoUsuario {
 	
 	@Id
+	//@Column(name="IDTIPO_USUARIO", length = 10, nullable = false)
 	private Integer IDTIPO_USUARIO;
 	
 	@Column(name="NM_TIPO_USU", length = 20, nullable = false)

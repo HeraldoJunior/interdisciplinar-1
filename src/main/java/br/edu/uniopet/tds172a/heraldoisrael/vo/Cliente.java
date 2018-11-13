@@ -14,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="TB_CLIENTE")
@@ -60,7 +61,9 @@ public class Cliente {
 	@JoinColumn(name = "IDTIPO_USUARIO")
 	private TipoUsuario tipoUsuario;
 	
+	@Transient
 	private String confereCPF;
+	@Transient
 	private String confereSenha;
 
 	/**
@@ -97,7 +100,6 @@ public class Cliente {
 		setTelFixoCliente(telFixoCliente);
 		setNomeUsuario(nomeUsuario);
 		setSenhaUsuario(senhaUsuario);
-		tipoUsuario.setIDTIPO_USUARIO(2);
 		setTipoUsuario(tipoUsuario);
 		
 		System.out.println("ENTROU PELO CONSTRUTOR COM PARAMETROS");

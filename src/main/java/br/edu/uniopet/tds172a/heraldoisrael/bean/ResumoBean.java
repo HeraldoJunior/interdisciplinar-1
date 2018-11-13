@@ -9,6 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.edu.uniopet.tds172a.heraldoisrael.controller.ClienteController;
 import br.edu.uniopet.tds172a.heraldoisrael.vo.Cliente;
@@ -117,6 +119,9 @@ public class ResumoBean implements Serializable {
 	 */
 	public String efetuarLogout() {
 
+		FacesContext fc = FacesContext.getCurrentInstance();   
+		HttpSession session = (HttpSession)fc.getExternalContext().getSession(false);   
+		session.invalidate();
 		return "/pages/login";
 
 	}
