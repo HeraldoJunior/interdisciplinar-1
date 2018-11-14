@@ -34,7 +34,7 @@ public class ClienteDAO implements ICliente {
 	public boolean inserirCliente(Cliente cliente) {
 		
 		TipoUsuario tipoUsuario = new TipoUsuario();
-		tipoUsuario.setIDTIPO_USUARIO(1);
+		tipoUsuario.setIDTIPO_USUARIO(2);
 		cliente.setTipoUsuario(tipoUsuario);
 		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
