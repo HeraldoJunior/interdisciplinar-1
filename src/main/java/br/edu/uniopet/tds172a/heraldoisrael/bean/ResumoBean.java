@@ -27,25 +27,7 @@ public class ResumoBean implements Serializable {
 	@ManagedProperty(value="#{loginBean}")
 	private LoginBean loginBean;
 
-	/*@ManagedProperty(value="#{cadastroBean}")
-	private CadastroBean cadastroBean;
 	
-	public CadastroBean getCadastroBean() {
-		return cadastroBean;
-	}
-
-	public void setCadastroBean(CadastroBean cadastroBean) {
-		this.cadastroBean = cadastroBean;
-	}*/
-
-	public LoginBean getLoginBean() {
-		return loginBean;
-	}
-
-	public void setLoginBean(LoginBean loginBean) {
-		this.loginBean = loginBean;
-	}
-
 	/**
 	 * 
 	 */
@@ -55,7 +37,7 @@ public class ResumoBean implements Serializable {
 	 * contrutor vazio do resumo bean
 	 */
 	public ResumoBean(){
-		System.out.println("Entrou em ResumoBean pelo construtor vazio");
+		
 	}
 	
 	/**
@@ -91,6 +73,15 @@ public class ResumoBean implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	public LoginBean getLoginBean() {
+		return loginBean;
+	}
+
+	public void setLoginBean(LoginBean loginBean) {
+		this.loginBean = loginBean;
+	}
+
 	
 	/**
 	 * fun��o de retorno para ir para a parte de altera��o de cadastro
