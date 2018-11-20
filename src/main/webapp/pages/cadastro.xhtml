@@ -22,12 +22,13 @@
 			<div class="card">
 				<div class="card-header text-center">
 					<h1>Para Cadastrar Insira as Informações Solicitadas a abaixo</h1>
+					<h4>Campos marcados com * são obrigatórios</h4>
 				</div>
 			</div>
 
 
 			<div class="form-group">
-				<p:outputLabel value="Nome Completo:" />
+				<p:outputLabel value="Nome Completo*:" />
 				<p:inputText id="NomeCompleto"
 					value="#{cadastroBean.cliente.nomeCliente}" styleClass="form-control" placeholder="ex: João da silva"/>
 			</div>
@@ -81,14 +82,14 @@
 
 			<div class="form-group">
 
-				<p:outputLabel value="Nome de Usuario:" />
+				<p:outputLabel value="Nome de Usuario*:" />
 				<p:inputText id="nomeusu"
 					value="#{cadastroBean.cliente.nomeUsuario}" styleClass="form-control" placeholder="ex: joaozinho"/>
 			</div>
 
 			<div class="form-group">
 
-				<p:outputLabel value="Senha:" />
+				<p:outputLabel value="Senha*:" />
 				<p:password id="senha" value="#{cadastroBean.cliente.senhaUsuario}" styleClass="form-control"></p:password>
 			</div>
 		

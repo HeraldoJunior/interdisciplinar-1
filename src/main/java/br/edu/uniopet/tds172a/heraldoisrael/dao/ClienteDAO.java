@@ -40,11 +40,15 @@ public class ClienteDAO implements ICliente {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
 		try {
-			if(cliente.getNomeCliente() != null){
-				session.save(cliente);
-				return true;
+			if(cliente.getNomeCliente() != null && cliente.getNomeCliente().length() > 2){
+				if((cliente.getSenhaUsuario() != null && cliente.getSenhaUsuario().length() > 3) && (cliente.getNomeUsuario() != null && cliente.getNomeUsuario().length() > 3) ) {
+					session.save(cliente);
+					return true;
+				}else {
+					return false;
+				}
 			}else {
-				System.out.println("TA TUDO ERRADO");
+				//System.out.println("TA TUDO ERRADO");
 				return false;
 			}
 		}catch(Exception e) {
@@ -86,6 +90,8 @@ public class ClienteDAO implements ICliente {
 			return false;
 		}
 	}
+	
+	
 	
 	public boolean alterarCliente(Cliente cliente) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
